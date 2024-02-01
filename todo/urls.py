@@ -1,11 +1,11 @@
 
 from django.urls import path
 
-from todo.views import TaskListView, TaskDetailView
+from todo.views import TaskListVies, TaskDetailView
 
 
 urlpatterns = [
-    path('', TaskListView.as_view(), name='task-list'),
+    path('', TaskListVies.as_view(), name='task-list'),
     path('task/<int:pk>/', TaskDetailView.as_view(), name='task-detail')
 ]
 
