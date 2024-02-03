@@ -1,4 +1,11 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
 {% for task in object_list %}
 <h1>{{ task.title }}</h1>
 <p>{{ task.deadline }}</p>
 {% endfor %}
+
+{% endblock content %}
+

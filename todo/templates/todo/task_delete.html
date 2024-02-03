@@ -4,10 +4,9 @@
 
 <form action="" method="POST">
   {% csrf_token %}
-  <table>
-  {{form.as_table}}
-  </table>
-  <input type="submit" value="送信">
+  <h2>{{task.pk}}.{{task.title}}</h2>
+  <p>このタスクを削除してもいいですか？</p>
+  <input type="submit" value="">
 </form>
 
 {% endblock content %}
