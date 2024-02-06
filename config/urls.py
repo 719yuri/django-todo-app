@@ -19,5 +19,7 @@ from django.urls import path,include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('todo.urls')),
-    path('accoutnts/', include('accounts.urls')),
+    path('accounts/', include('accounts.urls')),
 ]
+#このパターンのとこが怪しい？PATHで求められてるのはその型じゃないよーってなエラーみたい。
+#ざっくりすぎだけど・・。PATHの使い方を見てみたらもっとわかるかな？うーん
