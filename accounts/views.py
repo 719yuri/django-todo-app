@@ -1,8 +1,8 @@
 from django.contrib.auth.views import LoginView
 
 class MyLoginView(LoginView):
-    template_name='accounts/login.html',
-    redirect_authenticated_user='True',
+    template_name='accounts/login.html'
+    redirect_authenticated_user='True'
 
 #2/7めも　とりあえずこのauthe~~をauthe n ticated にしたけど変わらず。
 #ちな動画(56)ではN抜け、でも問題なさそうだった…動画の他のとこではN入れてるし、
@@ -14,5 +14,7 @@ class MyLoginView(LoginView):
 #んで、/accounts/login/に問題があるらしい。タイプエラーなのだから紐づいてないとかそういうんではなさそう？
 #ログインと同時に作ったログアウトは問題なかったのになあ。。二つの違いってViewsに切り分けてルーティングしたかどうかくらい。
 #次見てみるときはhttps://prograshi.com/language/python/python-tuple/を見てみようかな。知らない間に勝手にタプルとかこわ。
-#
+    
+#2/8 なんと！！このviewsクラスのテンプレートネームとリダイレクト〜が（）なしでカンマ区切ってたせいでタプルになってたらしく
+#消したらログイン画面に！！嬉しい　エラーがめんを一つ一つ紐解くのって大事だね
 
