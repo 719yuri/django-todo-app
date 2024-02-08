@@ -9,9 +9,13 @@
 
 {% block content %}
 <div class="shadow-sm p-3 mb-5 bg-body rounded">
+
+  {% if user.is_authenticated %}
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
     <a href="{% url 'task-new' %}" class="btn btn-outline-success me-3">新規作成</a>
   </div>
+  {% endif %}
+
   <table class="table">
     <thead>
       <tr>
@@ -28,10 +32,14 @@
           
         </td>
         <td>{{ task.deadline }}</td>
+
+        {% if user.is_authenticated %}
         <td>
           <a href="{% url 'task-edit' task.pk %}">編集</a>
           <a href="{% url 'task-delete' task.pk %}">削除</a>
         </td>
+        {% endif %}
+        
       </tr>
       {% endfor %}
     </tbody>

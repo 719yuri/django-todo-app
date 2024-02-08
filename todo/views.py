@@ -3,6 +3,7 @@ from django.views.generic import ListView,DetailView,CreateView, DeleteView, Upd
 # Create your views here.
 from todo.models import Task
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class TaskListVies(ListView):
   model = Task
@@ -12,17 +13,17 @@ class TaskDetailView(DetailView):
   model = Task
   template_name = "todo/task_detail.html"
 
-class TaskCreateView(CreateView):
+class TaskCreateView(LoginRequiredMixin, CreateView):
   model = Task
   fields = '__all__'
   success_url = reverse_lazy('task-list')
 
-class TaskDeleteView(DeleteView):
+class TaskDeleteView(LoginRequiredMixin, DeleteView):
   model = Task
   success_url = reverse_lazy('task-list')
   template_name = 'todo/task_delete.html'
   
-class TaskUpdateView(UpdateView):
+class TaskUpdateView(LoginRequiredMixin, UpdateView):
   model = Task
   fields = '__all__'
   success_url = reverse_lazy('task-list')
